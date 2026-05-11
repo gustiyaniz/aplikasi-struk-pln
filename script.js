@@ -1,3 +1,4 @@
+
 let selectedFile = null
 
 document
@@ -36,6 +37,7 @@ async function scanOCR(){
 
     console.log(text)
 
+    // TOKEN
     const tokenRegex =
     /(\d{4}\s\d{4}\s\d{4}\s\d{4}\s\d{4})/
 
@@ -43,55 +45,71 @@ async function scanOCR(){
     text.match(tokenRegex)
 
     if(tokenMatch){
+
       document.getElementById('token').value =
       tokenMatch[0]
+
     }
 
+    // NOMOR METER
     const meterRegex =
-    /Nomor Meter\s*(\d{11,12})/i
+    /Nomor Meter[\s\S]{0,20}?(\d{11,12})/i
 
     const meterMatch =
     text.match(meterRegex)
 
     if(meterMatch){
+
       document.getElementById('meter').value =
       meterMatch[1]
+
     }
 
+    // NAMA PELANGGAN
     const pelangganRegex =
-    /Nama Pelanggan\s*([A-Z\*]+)/i
+    /Nama Pelanggan[\s\S]{0,20}?([A-Z\*]{4,})/i
 
     const pelangganMatch =
     text.match(pelangganRegex)
 
     if(pelangganMatch){
+
       document.getElementById('pelanggan').value =
       pelangganMatch[1]
+
     }
 
+    // TARIF DAYA
     const tarifRegex =
-    /R1\s*\/\s*\d+\s*VA/i
+    /(R\\d\\s*\\/\\s*\\d+\\s*VA)/i
 
     const tarifMatch =
     text.match(tarifRegex)
 
     if(tarifMatch){
+
       document.getElementById('tarif').value =
-      tarifMatch[0]
+      tarifMatch[1]
+
     }
 
+    // NOMINAL
     const nominalRegex =
-    /Token PLN\s([\d\.]+)/i
+    /(Token PLN\\s?[\\d\\.]+)/i
 
     const nominalMatch =
     text.match(nominalRegex)
 
     if(nominalMatch){
+
       document.getElementById('nominal').value =
-      'Token PLN ' + nominalMatch[1]
+      nominalMatch[1]
+
     }
 
-    document.getElementById('kwh').value = '38,7'
+    // kWh default
+    document.getElementById('kwh').value =
+    '38,7'
 
     alert('OCR berhasil')
 

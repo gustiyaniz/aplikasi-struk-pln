@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLN Thermal Modern</title>
+  <title>PLN Thermal 56mm</title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -16,42 +16,46 @@
 
   <div class="header">
     <h1>PLN Thermal 56mm</h1>
-    <p>OCR Screenshot + Print Thermal</p>
+    <p>OCR Screenshot ShopeePay + Thermal Print</p>
   </div>
 
   <div class="content">
 
-    <div class="section-title">
-      1. Upload Screenshot
+    <div class="card">
+
+      <h3>Upload Screenshot</h3>
+
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+      >
+
+      <button onclick="scanOCR()">
+        Scan OCR
+      </button>
+
+      <img id="preview">
+
     </div>
 
-    <input
-      type="file"
-      id="imageInput"
-      accept="image/*"
-    >
+    <div class="card">
 
-    <button onclick="scanOCR()">
-      Scan OCR
-    </button>
+      <h3>Hasil OCR</h3>
 
-    <img id="preview">
+      <input type="text" id="token" placeholder="Nomor Token">
+      <input type="text" id="pelanggan" placeholder="Nama Pelanggan">
+      <input type="text" id="tarif" placeholder="Tarif / Daya">
+      <input type="text" id="meter" placeholder="Nomor Meter">
+      <input type="text" id="kwh" placeholder="Jumlah kWh">
+      <input type="text" id="nominal" placeholder="Nominal">
+      <input type="text" id="harga" placeholder="Harga di Struk">
 
-    <div class="section-title">
-      2. Hasil OCR
+      <button class="print" onclick="printReceipt()">
+        Cetak Struk
+      </button>
+
     </div>
-
-    <input type="text" id="token" placeholder="Nomor Token">
-    <input type="text" id="pelanggan" placeholder="Nama Pelanggan">
-    <input type="text" id="tarif" placeholder="Tarif / Daya">
-    <input type="text" id="meter" placeholder="Nomor Meter">
-    <input type="text" id="kwh" placeholder="Jumlah kWh">
-    <input type="text" id="nominal" placeholder="Nominal">
-    <input type="text" id="harga" placeholder="Harga di Struk">
-
-    <button class="print" onclick="printReceipt()">
-      Cetak Struk
-    </button>
 
   </div>
 
@@ -60,9 +64,9 @@
 <div id="receipt">
 
   <div class="center">
-    <h2>Gareng Cell</h2>
-    <div>Desa Sangkanayu RT 002/RW 001</div>
-    <div>0822-4263-8516</div>
+    <h2>TOKO LISTRIK</h2>
+    <div>Jl. Contoh No.123</div>
+    <div>0812-3456-7890</div>
   </div>
 
   <div class="line"></div>
@@ -74,11 +78,11 @@
 
   <div class="line"></div>
 
-  <div class="center bigtitle">
+  <div class="center title">
     TOKEN PLN
   </div>
 
-  <div class="bigtoken" id="rToken"></div>
+  <div class="token-big" id="rToken"></div>
 
   <div class="line"></div>
 
@@ -108,7 +112,7 @@
   </div>
 
   <div class="row">
-    <span>Harga</span>
+    <span>Harga di Struk</span>
     <span id="rHarga"></span>
   </div>
 
