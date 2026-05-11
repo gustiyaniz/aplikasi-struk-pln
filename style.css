@@ -1,0 +1,101 @@
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f1f5f9;
+}
+
+.app{
+  max-width:400px;
+  margin:auto;
+  padding:20px;
+}
+
+.header{
+  background:#16a34a;
+  color:white;
+  padding:20px;
+  border-radius:20px 20px 0 0;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:0 0 20px 20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  box-sizing:border-box;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#16a34a;
+  color:white;
+  font-size:16px;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+.print{
+  background:#0f172a;
+}
+
+img{
+  width:100%;
+  margin-top:15px;
+  border-radius:15px;
+}
+
+#receipt{
+  display:none;
+}
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  #receipt{
+    display:block;
+    width:56mm;
+    font-family:monospace;
+    padding:10px;
+  }
+
+  .line{
+    border-top:1px dashed black;
+    margin:5px 0;
+  }
+
+  .row{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+  }
+
+  .center{
+    text-align:center;
+  }
+
+  .token{
+    font-size:16px;
+    text-align:center;
+    font-weight:bold;
+    word-break:break-all;
+    margin:10px 0;
+  }
+
+  .app{
+    display:none;
+  }
+
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thermal PLN 56mm</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <h1>PLN Thermal 56mm</h1>
+    <p>OCR + Print Bluetooth</p>
+  </div>
+
+  <div class="card">
+
+    <input type="file" id="imageInput">
+
+    <button onclick="scanOCR()">
+      Scan Screenshot
+    </button>
+
+    <img id="preview">
+
+    <input type="text" id="meter" placeholder="Nomor Meter">
+
+    <input type="text" id="token" placeholder="Token PLN">
+
+    <input type="text" id="nominal" placeholder="Nominal">
+
+    <button onclick="printReceipt()" class="print">
+      Print Thermal
+    </button>
+
+  </div>
+
+</div>
+
+<div id="receipt">
+
+  <div class="center">
+    <h3>Gareng Cell</h3>
+    <p>Desa Sangkanayu RT 002/RW 001</p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="row">
+    <span>Tanggal</span>
+    <span id="dateNow"></span>
+  </div>
+
+  <div class="row">
+    <span>Meter</span>
+    <span id="rMeter"></span>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="center">
+    TOKEN PLN
+  </div>
+
+  <div class="token" id="rToken"></div>
+
+  <div class="line"></div>
+
+  <div class="row">
+    <span>Total</span>
+    <span id="rNominal"></span>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="center">
+    Terima Kasih
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
