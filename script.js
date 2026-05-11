@@ -1,4 +1,4 @@
-let selectedFile
+let selectedFile = null
 
 document
 .getElementById('imageInput')
@@ -6,9 +6,14 @@ document
 
   selectedFile = e.target.files[0]
 
-  document
-  .getElementById('preview')
-  .src = URL.createObjectURL(selectedFile)
+  if(selectedFile){
+
+    document
+    .getElementById('preview')
+    .src =
+    URL.createObjectURL(selectedFile)
+
+  }
 
 })
 
@@ -19,31 +24,74 @@ async function scanOCR(){
     return
   }
 
-  const result = await Tesseract.recognize(
-    selectedFile,
-    'eng'
-  )
+  try{
 
-  const text = result.data.text
+    const result =
+    await Tesseract.recognize(
+      selectedFile,
+      'eng'
+    )
 
-  // cari token 20 digit
-  const tokenRegex = /\\b\\d{20}\\b/g
-  const tokenMatch = text.match(tokenRegex)
+    const text = result.data.text
 
-  if(tokenMatch){
-    document
-    .getElementById('token')
-    .value = tokenMatch[0]
-  }
+    console.log(text)
 
-  // cari nominal
-  const nominalRegex = /Rp\\s?[\\d\\.]+/i
-  const nominalMatch = text.match(nominalRegex)
+    // TOKEN PLN
+    const tokenRegex =
+    /(\d{4}\s\d{4}\s\d{4}\s\d{4}\s\d{4})/
 
-  if(nominalMatch){
-    document
-    .getElementById('nominal')
-    .value = nominalMatch[0]
+    const tokenMatch =
+    text.match(tokenRegex)
+
+    if(tokenMatch){
+
+      document
+      .getElementById('token')
+      .value =
+      tokenMatch[0]
+
+    }
+
+    // NOMOR METER
+    const meterRegex =
+    /Nomor Meter\s*(\d{11,12})/i
+
+    const meterMatch =
+    text.match(meterRegex)
+
+    if(meterMatch){
+
+      document
+      .getElementById('meter')
+      .value =
+      meterMatch[1]
+
+    }
+
+    // NOMINAL
+    const nominalRegex =
+    /Token PLN\s([\d\.]+)/i
+
+    const nominalMatch =
+    text.match(nominalRegex)
+
+    if(nominalMatch){
+
+      document
+      .getElementById('nominal')
+      .value =
+      'Rp' + nominalMatch[1]
+
+    }
+
+    alert('OCR berhasil')
+
+  }catch(err){
+
+    console.error(err)
+
+    alert('OCR gagal')
+
   }
 
 }
@@ -65,12 +113,10 @@ function printReceipt(){
   .innerText =
   document.getElementById('nominal').value
 
-  const date = new Date()
-
   document
   .getElementById('dateNow')
   .innerText =
-  date.toLocaleString('id-ID')
+  new Date().toLocaleString('id-ID')
 
   window.print()
 
