@@ -1,16 +1,16 @@
-# PLN Thermal 56mm
+# PLN Thermal Modern
 
-Aplikasi OCR screenshot token PLN ShopeePay + printer thermal bluetooth 56mm.
+Aplikasi OCR Token PLN + Print Thermal 56mm.
 
 ## Fitur
-- OCR screenshot ShopeePay
-- Deteksi token PLN otomatis
+- OCR Screenshot ShopeePay
+- Auto isi data token PLN
 - Print thermal 56mm
-- Mobile friendly
-- Siap upload ke GitHub Pages
+- Harga di struk manual
+- Token besar dan bold
+- Tampilan modern Android
 
-## Cara Pakai
-1. Upload screenshot
-2. Klik Scan Screenshot
-3. Data otomatis terisi
-4. Klik Print Thermal
+## Upload ke GitHub
+1. Upload semua file
+2. Aktifkan GitHub Pages
+3. Selesai

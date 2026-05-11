@@ -1,51 +1,57 @@
 body{
   margin:0;
-  font-family:Arial;
   background:#f1f5f9;
+  font-family:Arial;
 }
 
-.app{
-  max-width:400px;
+.phone{
+  max-width:420px;
   margin:auto;
-  padding:20px;
+  background:white;
+  min-height:100vh;
 }
 
 .header{
-  background:#16a34a;
+  background:#0c8f3d;
   color:white;
   padding:20px;
-  border-radius:20px 20px 0 0;
 }
 
-.card{
-  background:white;
+.content{
   padding:20px;
-  border-radius:0 0 20px 20px;
+}
+
+.section-title{
+  font-weight:bold;
+  margin:15px 0;
+  font-size:18px;
 }
 
 input{
   width:100%;
   padding:14px;
-  margin-top:10px;
-  border-radius:12px;
+  border-radius:14px;
   border:1px solid #ddd;
+  margin-top:10px;
   box-sizing:border-box;
+  font-size:16px;
 }
 
 button{
   width:100%;
-  padding:15px;
+  padding:16px;
   border:none;
-  border-radius:12px;
-  background:#16a34a;
+  border-radius:14px;
+  background:#0c8f3d;
   color:white;
   font-size:16px;
   margin-top:15px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 .print{
-  background:#0f172a;
+  background:#111827;
 }
 
 img{
@@ -64,38 +70,51 @@ img{
     background:white;
   }
 
+  .phone{
+    display:none;
+  }
+
   #receipt{
     display:block;
     width:56mm;
-    font-family:monospace;
     padding:10px;
-  }
-
-  .line{
-    border-top:1px dashed black;
-    margin:5px 0;
-  }
-
-  .row{
-    display:flex;
-    justify-content:space-between;
-    font-size:12px;
+    font-family:monospace;
   }
 
   .center{
     text-align:center;
   }
 
-  .token{
-    font-size:16px;
-    text-align:center;
-    font-weight:bold;
-    word-break:break-all;
-    margin:10px 0;
+  .line{
+    border-top:1px dashed black;
+    margin:8px 0;
   }
 
-  .app{
-    display:none;
+  .row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:6px;
+    font-size:12px;
+    gap:10px;
+  }
+
+  .bigtitle{
+    margin-top:10px;
+    font-size:18px;
+  }
+
+  .bigtoken{
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    margin:15px 0;
+    line-height:1.4;
+    word-break:break-word;
+  }
+
+  .thanks{
+    margin-top:15px;
+    font-size:14px;
   }
 
 }

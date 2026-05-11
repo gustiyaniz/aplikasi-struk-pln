@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLN Thermal 56mm</title>
+  <title>PLN Thermal Modern</title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -12,14 +12,18 @@
 
 <body>
 
-<div class="app">
+<div class="phone">
 
   <div class="header">
     <h1>PLN Thermal 56mm</h1>
-    <p>OCR Screenshot ShopeePay + Print Thermal</p>
+    <p>OCR Screenshot + Print Thermal</p>
   </div>
 
-  <div class="card">
+  <div class="content">
+
+    <div class="section-title">
+      1. Upload Screenshot
+    </div>
 
     <input
       type="file"
@@ -28,19 +32,25 @@
     >
 
     <button onclick="scanOCR()">
-      Scan Screenshot
+      Scan OCR
     </button>
 
     <img id="preview">
 
+    <div class="section-title">
+      2. Hasil OCR
+    </div>
+
+    <input type="text" id="token" placeholder="Nomor Token">
+    <input type="text" id="pelanggan" placeholder="Nama Pelanggan">
+    <input type="text" id="tarif" placeholder="Tarif / Daya">
     <input type="text" id="meter" placeholder="Nomor Meter">
-
-    <input type="text" id="token" placeholder="Token PLN">
-
+    <input type="text" id="kwh" placeholder="Jumlah kWh">
     <input type="text" id="nominal" placeholder="Nominal">
+    <input type="text" id="harga" placeholder="Harga di Struk">
 
-    <button onclick="printReceipt()" class="print">
-      Print Thermal
+    <button class="print" onclick="printReceipt()">
+      Cetak Struk
     </button>
 
   </div>
@@ -50,8 +60,9 @@
 <div id="receipt">
 
   <div class="center">
-    <h3>TOKO LISTRIK</h3>
-    <p>Jl. Contoh No.123</p>
+    <h2>Gareng Cell</h2>
+    <div>Desa Sangkanayu RT 002/RW 001</div>
+    <div>0822-4263-8516</div>
   </div>
 
   <div class="line"></div>
@@ -61,30 +72,52 @@
     <span id="dateNow"></span>
   </div>
 
-  <div class="row">
-    <span>Meter</span>
-    <span id="rMeter"></span>
-  </div>
-
   <div class="line"></div>
 
-  <div class="center">
+  <div class="center bigtitle">
     TOKEN PLN
   </div>
 
-  <div class="token" id="rToken"></div>
+  <div class="bigtoken" id="rToken"></div>
 
   <div class="line"></div>
 
   <div class="row">
-    <span>Total</span>
+    <span>Nama Pelanggan</span>
+    <span id="rPelanggan"></span>
+  </div>
+
+  <div class="row">
+    <span>Tarif/Daya</span>
+    <span id="rTarif"></span>
+  </div>
+
+  <div class="row">
+    <span>Nomor Meter</span>
+    <span id="rMeter"></span>
+  </div>
+
+  <div class="row">
+    <span>Jumlah kWh</span>
+    <span id="rKwh"></span>
+  </div>
+
+  <div class="row">
+    <span>Nominal</span>
     <span id="rNominal"></span>
+  </div>
+
+  <div class="row">
+    <span>Harga</span>
+    <span id="rHarga"></span>
   </div>
 
   <div class="line"></div>
 
-  <div class="center">
-    Terima Kasih
+  <div class="center thanks">
+    TERIMA KASIH
+    <br>
+    SEMOGA BERMANFAAT
   </div>
 
 </div>
